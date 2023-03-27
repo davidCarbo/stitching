@@ -1,0 +1,16 @@
+networks:
+  main:
+    driver: "bridge"
+services:
+
+  image_processing:
+    restart: always
+    build: ./container_image_processing
+    ports:
+      - 5000:5000
+    volumes:
+      - ./container_image_processing/src:/container_image_processing
+    networks:
+      main:
+        aliases:
+          - container_image_processing
