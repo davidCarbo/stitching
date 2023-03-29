@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Cache Buildx
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
@@ -22,3 +22,19 @@ jobs:
         run: docker buildx build --load -t apptest7 ./container_image_processing
       - name: Run tests
         run: docker run apptest7 pytest /src/
+  test2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Cache Buildx
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      - name: Set up buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Build Docker image
+        run: docker buildx build --load -t apptest7 ./container_image_processing
