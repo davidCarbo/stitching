@@ -22,7 +22,7 @@ jobs:
         run: docker buildx build --load -t apptest7 ./container_image_processing
       - name: Run tests
         run: docker run apptest7 pytest /src/
-  test2:
+  test22:
     needs: test
     runs-on: ubuntu-latest
     steps:
