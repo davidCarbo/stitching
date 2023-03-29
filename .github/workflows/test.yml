@@ -14,4 +14,4 @@ jobs:
       - name: Build Docker image
         run: docker buildx build --load -t apptest7 ./container_image_processing
       - name: Run tests
-        run: ./container_image_processing/ pytest /src/
+        run: docker run apptest7 pytest /src/
