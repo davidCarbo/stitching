@@ -23,6 +23,7 @@ jobs:
       - name: Run tests
         run: docker run apptest7 pytest /src/
   test2:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
