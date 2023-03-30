@@ -24,3 +24,4 @@ jobs:
         run: docker buildx build --load -t apptest7 ./container_image_processing
       - name: Run tests
         run: docker run apptest7 pytest /src/
+      - name: ningun sentido
