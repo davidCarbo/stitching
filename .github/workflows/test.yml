@@ -25,3 +25,4 @@ jobs:
       - name: Run tests
         run: docker run apptest7 pytest /src/
       - name: ningun sentido
+        run: echo 'hola'
